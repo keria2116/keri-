@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keriá – Velas Artesanales & Atelier</title>
+    
+    <!-- Meta tags SEO básicos -->
+    <meta name="description" content="Keriá: Velas artesanales de cera de soja y talleres presenciales (Atelier). Momentos de bienestar, creatividad y conexión emocional.">
+    <meta name="keywords" content="velas artesanales, cera de soja, taller de velas, atelier, bienestar, regalar, keria, santiago, chile">
+
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display (Serif) + Montserrat (Sans) + Great Vibes (Manuscrita) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        keria: {
+                            ivory: '#FAF7F2',       /* Blanco Marfil Base */
+                            rose: '#F4E8E1',        /* Rosa Palo Suave */
+                            rosedark: '#E3CBC1',    /* Rosa Palo Acentuado */
+                            beige: '#EFE7DE',       /* Beige Cálido */
+                            gold: '#D4AF37',        /* Dorado Delicado */
+                            goldsoft: '#E8D28A',    /* Dorado Suave */
+                            charcoal: '#332E2C',    /* Texto Oscuro Suave */
+                            sand: '#A89B91'         /* Neutro Medio */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados y utilidades de efectos */
+        body {
+            background-color: #FAF7F2;
+            color: #332E2C;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-handwriting {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Gradientes sutiles de la marca */
+        .bg-keria-gradient {
+            background: linear-gradient(135deg, #FAF7F2 0%, #F4E8E1 50%, #EFE7DE 100%);
+        }
+
+        .bg-gold-accent {
+            background: linear-gradient(135deg, #D4AF37 0%, #E8D28A 100%);
+        }
+
+        .text-gold-accent {
+            background: linear-gradient(135deg, #B89228 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Sombras suaves refinadas */
+        .shadow-soft {
+            box-shadow: 0 10px 30px -10px rgba(80, 60, 50, 0.08);
+        }
+
+        .shadow-hover {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .shadow-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 35px -10px rgba(80, 60, 50, 0.14);
+        }
+
+        /* Indicador de edición visual (para mantenedores) */
+        .placeholder-image {
+            position: relative;
+        }
+
+        .placeholder-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            color: #786C64;
+            font-size: 0.65rem;
+            padding: 4px 8px;
+            border-radius: 9999px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 600;
+            z-index: 10;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-keria-rosedark selection:text-keria-charcoal">
+
+    <!-- ==========================================
+         NAVEGACIÓN (HEADER)
+         ========================================== -->
+    <header id="header" class="fixed w-full top-0 z-40 transition-all duration-300 bg-keria-ivory/90 backdrop-blur-md border-b border-keria-beige/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Marca -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <img src="logo2.jpeg" alt="Logo Keriá" class="h-12 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
+                    <div class="flex flex-col">
+                        <span class="font-serif-title text-xl sm:text-2xl tracking-widest text-keria-charcoal font-semibold group-hover:text-keria-gold transition-colors">KERIÁ</span>
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-keria-sand uppercase -mt-1 font-medium">Velas Artesanales & Atelier</span>
+                    </div>
+                </a>
+
+                <!-- Navegación Escritorio -->
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-medium uppercase tracking-widest text-keria-charcoal">
+                    <a href="#inicio" class="hover:text-keria-gold transition-colors py-2">Inicio</a>
+                    <a href="#nosotros" class="hover:text-keria-gold transition-colors py-2">Esencia</a>
+                    <a href="#productos" class="hover:text-keria-gold transition-colors py-2">Velas</a>
+                    <a href="#atelier" class="hover:text-keria-gold transition-colors py-2 text-keria-gold font-semibold">Talleres Atelier</a>
+                    <a href="#regalos" class="hover:text-keria-gold transition-colors py-2">Regalos</a>
+                    <a href="#contacto" class="hover:text-keria-gold transition-colors py-2">Contacto</a>
+                </nav>
+
+                <!-- Botón de acción rápida en Header -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos%20y%20experiencias." 
+                       target="_blank" 
+                       rel="noopener"
+                       class="inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-wider text-keria-charcoal border border-keria-charcoal/30 rounded-full hover:bg-keria-charcoal hover:text-white transition-all duration-300">
+                        <i class="fab fa-whatsapp mr-2 text-sm text-emerald-600"></i> Contactar
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-keria-charcoal p-2 focus:outline-none" aria-label="Abrir menú">
+                        <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-keria-ivory border-b border-keria-beige px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#inicio" class="mobile-link block py-2 text-sm uppercase tracking-wider text-keria-charcoal border-b border-keria-beige/40">Inicio</a>
+            <a href="#nosotros" class="mobile-link block py-2 text-sm uppercase tracking-wider text-keria-charcoal border-b border-keria-beige/40">Esencia Keriá</a>
+            <a href="#productos" class="mobile-link block py-2 text-sm uppercase tracking-wider text-keria-charcoal border-b border-keria-beige/40">Nuestras Velas</a>
+            <a href="#atelier" class="mobile-link block py-2 text-sm uppercase tracking-wider font-semibold text-keria-gold border-b border-keria-beige/40">Talleres (Atelier)</a>
+            <a href="#regalos" class="mobile-link block py-2 text-sm uppercase tracking-wider text-keria-charcoal border-b border-keria-beige/40">Regalos Especiales</a>
+            <a href="#contacto" class="mobile-link block py-2 text-sm uppercase tracking-wider text-keria-charcoal">Contacto</a>
+            <div class="pt-2">
+                <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos%20y%20experiencias." 
+                   target="_blank" 
+                   rel="noopener"
+                   class="w-full inline-flex items-center justify-center px-4 py-3 text-xs uppercase tracking-widest text-white bg-keria-charcoal rounded-full shadow-md">
+                    <i class="fab fa-whatsapp mr-2 text-base text-emerald-400"></i> Escribir por WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ==========================================
+         SECCIÓN 1: HERO PRINCIPAL
+         ========================================== -->
+    <section id="inicio" class="relative pt-28 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-keria-gradient">
+        <!-- Adorno de fondo ambiental -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-keria-rose/50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-keria-beige/60 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Texto del Hero -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/80 border border-keria-rosedark/40 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-keria-gold"></span>
+                        <span class="text-[11px] font-medium tracking-widest uppercase text-keria-sand">Cera de soja & Atelier creativo</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-3xl sm:text-5xl lg:text-6xl text-keria-charcoal leading-tight font-normal">
+                        Keriá: mucho más que velas, <span class="italic text-keria-gold-accent font-serif-title">momentos que iluminan el alma.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-keria-charcoal/80 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Creamos velas artesanales elaboradas con cera vegetal de soja, aromas delicados y diseños pensados para reconectar con la calma, la belleza y la creatividad.
+                    </p>
+
+                    <!-- Botones de Acción -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20gustar%C3%ADa%20conocer%20sus%20velas%20artesanales%20y%20productos%20disponibles." 
+                           target="_blank" 
+                           rel="noopener"
+                           class="w-full sm:w-auto px-8 py-4 bg-keria-charcoal text-white text-xs uppercase tracking-[0.2em] rounded-full shadow-lg hover:bg-keria-gold hover:text-keria-charcoal transition-all duration-300 text-center font-medium flex items-center justify-center gap-3 group">
+                            <i class="fab fa-whatsapp text-lg text-emerald-400 group-hover:text-keria-charcoal transition-colors"></i>
+                            <span>Consultar por WhatsApp</span>
+                        </a>
+
+                        <a href="#atelier" 
+                           class="w-full sm:w-auto px-8 py-4 bg-white/80 hover:bg-white text-keria-charcoal text-xs uppercase tracking-[0.2em] rounded-full border border-keria-beige shadow-sm hover:shadow-md transition-all duration-300 text-center font-medium">
+                            Descubrir Atelier
+                        </a>
+                    </div>
+
+                    <!-- Pequeña firma decorativa -->
+                    <div class="pt-4 flex items-center justify-center lg:justify-start space-x-3 text-sm text-keria-sand">
+                        <span class="font-handwriting text-2xl text-keria-gold">Hecho a mano con intención</span>
+                        <span class="w-8 h-[1px] bg-keria-rosedark"></span>
+                    </div>
+                </div>
+
+                <!-- Fotografía Principal del Hero -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Marco decorativo orgánico -->
+                        <div class="absolute inset-0 border-2 border-keria-gold/30 rounded-t-[120px] rounded-b-[40px] transform translate-x-3 translate-y-3 pointer-events-none"></div>
+                        
+                        <div class="relative rounded-t-[120px] rounded-b-[40px] overflow-hidden shadow-2xl bg-keria-beige placeholder-image">
+                            <!-- BADGE EDITABLE (removible al poner fotos definitivas) -->
+                            <span class="placeholder-badge">Foto Referencial</span>
+                            
+                            <!-- Imagen Protagonista -->
+                            <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Velas artesanales de cera de soja Keriá" 
+                                 class="w-full h-[450px] sm:h-[520px] object-cover hover:scale-105 transition-transform duration-700"
+                                 onerror="this.src='https://placehold.co/600x800/FAF7F2/332E2C?text=Fotografia+Keria+Velas'">
+                            
+                            <!-- Gradiente overlay delicado -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-keria-charcoal/30 via-transparent to-transparent"></div>
+                        </div>
+
+                        <!-- Card Flotante Informativa -->
+                        <div class="absolute -bottom-6 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-keria-rose/50 max-w-[240px] hidden sm:block">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-keria-rose flex items-center justify-center text-keria-gold">
+                                    <i class="fas fa-leaf text-base"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold uppercase tracking-wider text-keria-charcoal">Cera 100% Soja</h4>
+                                    <p class="text-[11px] text-keria-sand">Ecológica, limpia y duradera</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 2: PRESENTACIÓN DE KERIÁ (ESENCIA)
+         ========================================== -->
+    <section id="nosotros" class="py-20 md:py-28 bg-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Imagen Editorial: Foto de la Creadora / Fundadora -->
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="relative">
+                        <div class="w-full h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-soft border-2 border-keria-rose/50 bg-keria-beige">
+                            <img src="andrea1.png" 
+                                 alt="Fundadora de Keriá Velas Artesanales & Atelier" 
+                                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                                 onerror="this.src='https://placehold.co/600x700/EFE7DE/332E2C?text=Fundadora+Keria'">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-lg border border-keria-rosedark/40">
+                            <span class="block font-handwriting text-xl text-keria-gold">Con amor y propósito</span>
+                            <span class="block text-[10px] uppercase tracking-widest text-keria-sand font-medium">Fundadora & Crafter</span>
+                        </div>
+                        <div class="absolute -bottom-5 -left-5 w-32 h-32 bg-keria-rose/60 rounded-full -z-10 blur-xl"></div>
+                    </div>
+                </div>
+
+                <!-- Contenido de Marca -->
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-6 text-center lg:text-left">
+                    <span class="text-xs font-semibold uppercase tracking-[0.25em] text-keria-sand">Propuesta de Valor</span>
+                    
+                    <h2 class="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-keria-charcoal leading-tight">
+                        Pequeños momentos que <br class="hidden sm:inline"><span class="italic text-keria-gold">iluminan el alma.</span>
+                    </h2>
+
+                    <div class="w-16 h-[2px] bg-keria-rosedark mx-auto lg:mx-0"></div>
+
+                    <div class="space-y-4 text-sm sm:text-base text-keria-charcoal/80 font-light leading-relaxed">
+                        <p>
+                            En <strong>Keriá</strong> creemos firmemente que los pequeños rituales cotidianos pueden transformar nuestros días. 
+                            Creamos velas artesanales y experiencias pensadas para invitarte a detenerte, respirar hondo, disfrutar del presente y conectar con aquello que realmente importa.
+                        </p>
+                        <p>
+                            Cada vela, cada mezcla aromática y cada encuentro en nuestro Atelier están elaborados con paciencia, dedicación y un profundo cuidado por los detalles.
+                        </p>
+                        <p class="italic font-serif-title text-base sm:text-lg text-keria-charcoal">
+                            "Nuestra propuesta va más allá de lo artesanal: buscamos crear espacios de calma, belleza y conexión emocional."
+                        </p>
+                    </div>
+
+                    <!-- Grid de Pilares -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-keria-beige">
+                        <div class="p-3 rounded-xl bg-keria-ivory text-center lg:text-left">
+                            <span class="block font-serif-title text-lg text-keria-charcoal font-semibold">Bienestar</span>
+                            <span class="text-[11px] text-keria-sand">Ambientes acogedores</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-keria-ivory text-center lg:text-left">
+                            <span class="block font-serif-title text-lg text-keria-charcoal font-semibold">Creatividad</span>
+                            <span class="text-[11px] text-keria-sand">Aprendizaje y talleres</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-keria-ivory text-center lg:text-left col-span-2 sm:col-span-1">
+                            <span class="block font-serif-title text-lg text-keria-charcoal font-semibold">Detalle</span>
+                            <span class="text-[11px] text-keria-sand">Estética artesanal</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 3: NUESTROS PRODUCTOS (CATÁLOGO EDITABLE)
+         ========================================== -->
+    <section id="productos" class="py-20 md:py-28 bg-keria-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Encabezado de la Sección -->
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-keria-sand">Catálogo Artesanal</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl text-keria-charcoal font-normal">
+                    Velas que transforman momentos
+                </h2>
+                <p class="text-sm sm:text-base text-keria-charcoal/70 font-light">
+                    Piezas elaboradas a mano con cera vegetal de soja. Consulta disponibilidad, aromas de temporada o personalizaciones directamente por WhatsApp.
+                </p>
+                <div class="w-12 h-[1px] bg-keria-gold mx-auto"></div>
+            </div>
+
+            <!-- Grid de Productos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- PRODUCTO 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft shadow-hover flex flex-col justify-between border border-keria-beige/60">
+                    <div>
+                        <div class="relative h-64 sm:h-72 bg-keria-beige overflow-hidden placeholder-image">
+                            <span class="placeholder-badge">Foto Referencial</span>
+                            <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Vela Aromática en Frasco de Vidrio Keriá" 
+                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/500x500/FAF7F2/332E2C?text=Vela+Aromatica'">
+                            <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-[10px] uppercase tracking-wider text-keria-charcoal px-3 py-1 rounded-full font-medium">Clásica</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-serif-title text-xl text-keria-charcoal">Vela Aromática en Frasco</h3>
+                            <p class="text-xs text-keria-charcoal/70 leading-relaxed font-light">
+                                Elaborada en frasco de vidrio reutilizable con tapa de madera. Ideal para acompañar tus momentos de lectura o relajación.
+                            </p>
+                            <div class="pt-2 text-xs text-keria-sand space-y-1">
+                                <p><strong class="text-keria-charcoal font-medium">Aromas:</strong> Lavanda & Vainilla, Jazmín Soft, Peonías (Consultar disponibilidad)</p>
+                                <p><strong class="text-keria-charcoal font-medium">Cera:</strong> 100% Soja Natural</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-keria-ivory mt-4">
+                        <!-- PRECIO EDITABLE: Si no hay precio, dejar "Consultar" -->
+                        <div>
+                            <span class="text-[10px] uppercase text-keria-sand block">Precio</span>
+                            <span class="font-serif-title text-lg text-keria-charcoal font-semibold">Consultar</span>
+                        </div>
+                        <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Quisiera%20consultar%20por%20la%20Vela%20Arom%C3%A1tica%20en%20Frasco." 
+                           target="_blank" 
+                           rel="noopener"
+                           class="inline-flex items-center text-xs uppercase tracking-wider text-keria-charcoal hover:text-keria-gold font-medium gap-1 transition-colors">
+                            <span>Consultar</span>
+                            <i class="fab fa-whatsapp text-sm text-emerald-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft shadow-hover flex flex-col justify-between border border-keria-beige/60">
+                    <div>
+                        <div class="relative h-64 sm:h-72 bg-keria-beige overflow-hidden placeholder-image">
+                            <span class="placeholder-badge">Foto Referencial</span>
+                            <img src="https://images.unsplash.com/photo-1570824104453-508955ab713e?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Vela Escultural Decorativa Keriá" 
+                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/500x500/EFE7DE/332E2C?text=Vela+Decorativa'">
+                            <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-[10px] uppercase tracking-wider text-keria-charcoal px-3 py-1 rounded-full font-medium">Decorativa</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-serif-title text-xl text-keria-charcoal">Vela Escultural & Moldes</h3>
+                            <p class="text-xs text-keria-charcoal/70 leading-relaxed font-light">
+                                Velas con formas artísticas y delicadas diseñadas para decorar espacios con elegancia y sutileza.
+                            </p>
+                            <div class="pt-2 text-xs text-keria-sand space-y-1">
+                                <p><strong class="text-keria-charcoal font-medium">Estilo:</strong> Formas orgánicas y botánicas</p>
+                                <p><strong class="text-keria-charcoal font-medium">Uso:</strong> Decoración y ambientes delicados</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-keria-ivory mt-4">
+                        <div>
+                            <span class="text-[10px] uppercase text-keria-sand block">Precio</span>
+                            <span class="font-serif-title text-lg text-keria-charcoal font-semibold">Consultar</span>
+                        </div>
+                        <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20interesa%20la%20Vela%20Escultural%20Decorativa,%20%CBFuenten%20darme%20detalles?" 
+                           target="_blank" 
+                           rel="noopener"
+                           class="inline-flex items-center text-xs uppercase tracking-wider text-keria-charcoal hover:text-keria-gold font-medium gap-1 transition-colors">
+                            <span>Consultar</span>
+                            <i class="fab fa-whatsapp text-sm text-emerald-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft shadow-hover flex flex-col justify-between border border-keria-beige/60">
+                    <div>
+                        <div class="relative h-64 sm:h-72 bg-keria-beige overflow-hidden placeholder-image">
+                            <span class="placeholder-badge">Foto Referencial</span>
+                            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Set Especial de Regalo Keriá" 
+                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/500x500/F4E8E1/332E2C?text=Set+Regalo'">
+                            <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-[10px] uppercase tracking-wider text-keria-charcoal px-3 py-1 rounded-full font-medium">Edición Especial</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <h3 class="font-serif-title text-xl text-keria-charcoal">Set de Regalo & Experiencia</h3>
+                            <p class="text-xs text-keria-charcoal/70 leading-relaxed font-light">
+                                Cajas preparadas con delicadeza que combinan velas, apagavelas y detalles aromáticos para regalar momentos inolvidables.
+                            </p>
+                            <div class="pt-2 text-xs text-keria-sand space-y-1">
+                                <p><strong class="text-keria-charcoal font-medium">Presentación:</strong> Caja kraft/blanca decorada</p>
+                                <p><strong class="text-keria-charcoal font-medium">Personalización:</strong> Nota escrita a mano incluida</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-keria-ivory mt-4">
+                        <div>
+                            <span class="text-[10px] uppercase text-keria-sand block">Precio</span>
+                            <span class="font-serif-title text-lg text-keria-charcoal font-semibold">Consultar</span>
+                        </div>
+                        <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Quisiera%20cotizar%20un%20Set%20de%20Regalo%20Especial." 
+                           target="_blank" 
+                           rel="noopener"
+                           class="inline-flex items-center text-xs uppercase tracking-wider text-keria-charcoal hover:text-keria-gold font-medium gap-1 transition-colors">
+                            <span>Consultar</span>
+                            <i class="fab fa-whatsapp text-sm text-emerald-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner Informativo para Pedidos Personalizados -->
+            <div class="mt-16 bg-keria-rose/40 rounded-2xl p-6 sm:p-10 border border-keria-rosedark/40 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 max-w-xl">
+                    <h4 class="font-serif-title text-2xl text-keria-charcoal">¿Buscas recuerdos o pedidos corporativos?</h4>
+                    <p class="text-xs sm:text-sm text-keria-charcoal/80 font-light">
+                        Diseñamos velas personalizadas para eventos, matrimonios, bautizos, regalos de empresa o celebraciones especiales.
+                    </p>
+                </div>
+                <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Quisiera%20consultar%20por%20opciones%20de%20regalos%20personalizados%20o%20recuerdos%20para%20eventos." 
+                   target="_blank" 
+                   rel="noopener"
+                   class="px-6 py-3 bg-keria-charcoal text-white text-xs uppercase tracking-widest rounded-full hover:bg-keria-gold hover:text-keria-charcoal transition-all whitespace-nowrap shadow-md">
+                    Cotizar Personalizado
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 4: ATELIER DE VELAS (TALLERES PRESENCIALES)
+         ========================================== -->
+    <section id="atelier" class="py-20 md:py-28 bg-keria-charcoal text-white relative overflow-hidden">
+        
+        <!-- Elemento de luz de fondo -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-keria-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Información Atelier -->
+                <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 border border-keria-gold/30">
+                        <i class="fas fa-sparkles text-xs text-keria-gold"></i>
+                        <span class="text-[11px] font-medium tracking-widest uppercase text-keria-beige">Experiencia Presencial</span>
+                    </div>
+
+                    <h2 class="font-serif-title text-3xl sm:text-5xl leading-tight font-normal">
+                        Una experiencia para <br><span class="italic text-keria-goldsoft font-serif-title">crear, disfrutar y conectar.</span>
+                    </h2>
+
+                    <p class="text-sm sm:text-base text-keria-beige/80 font-light leading-relaxed">
+                        En nuestros talleres presenciales de <strong>Keriá Atelier</strong>, te invitamos a descubrir el maravilloso mundo de la cerería artesanal. Aprenderás a elaborar tus propias velas desde cero, conocerás diferentes técnicas, esencias y materiales, y disfrutarás de una jornada creativa en un ambiente cálido y acogedor.
+                    </p>
+
+                    <!-- Lista de Características del Taller -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left pt-2">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check text-keria-gold mt-1 text-xs"></i>
+                            <div>
+                                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Aprendizaje Práctico</h5>
+                                <p class="text-[11px] text-keria-beige/60">Creación de tus propias piezas desde cero.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check text-keria-gold mt-1 text-xs"></i>
+                            <div>
+                                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Materiales Incluidos</h5>
+                                <p class="text-[11px] text-keria-beige/60">Cera de soja, esencias, mechas y envases.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check text-keria-gold mt-1 text-xs"></i>
+                            <div>
+                                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Ambiente Acogedor</h5>
+                                <p class="text-[11px] text-keria-beige/60">Un momento para ti y para compartir.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check text-keria-gold mt-1 text-xs"></i>
+                            <div>
+                                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Próximas Fechas</h5>
+                                <p class="text-[11px] text-keria-beige/60">Consulta cupos y fechas disponibles.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón Destacado Taller -->
+                    <div class="pt-6">
+                        <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20interesa%20participar%20en%20uno%20de%20sus%20talleres%20de%20velas.%20%CBFuenten%20enviarme%20informaci%C3%B3n%20sobre%20pr%C3%B3ximas%20fechas?" 
+                           target="_blank" 
+                           rel="noopener"
+                           class="inline-flex items-center justify-center px-8 py-4 bg-keria-gold text-keria-charcoal text-xs uppercase tracking-[0.2em] rounded-full font-semibold shadow-lg hover:bg-white transition-all duration-300 gap-3 group">
+                            <i class="fab fa-whatsapp text-lg text-emerald-800"></i>
+                            <span>Quiero participar en un taller</span>
+                        </a>
+                        <p class="text-[11px] text-keria-beige/50 mt-2 italic">Cupos limitados por sesión para brindar atención personalizada.</p>
+                    </div>
+
+                </div>
+
+                <!-- Columna Derecha: Imágenes Galería Atelier -->
+                <div class="lg:col-span-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="h-48 sm:h-64 rounded-2xl overflow-hidden placeholder-image bg-keria-sand/20">
+                                <span class="placeholder-badge">Foto Atelier</span>
+                                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Taller presencial de elaboración de velas Keriá" 
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/400x500/332E2C/FAF7F2?text=Taller+1'">
+                            </div>
+                            <div class="h-36 sm:h-44 rounded-2xl overflow-hidden placeholder-image bg-keria-sand/20">
+                                <span class="placeholder-badge">Foto Atelier</span>
+                                <img src="https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Materiales artesanales cera de soja" 
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/400x300/332E2C/FAF7F2?text=Materiales'">
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="h-36 sm:h-44 rounded-2xl overflow-hidden placeholder-image bg-keria-sand/20">
+                                <span class="placeholder-badge">Foto Atelier</span>
+                                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Esencias y aceites de velas" 
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/400x300/332E2C/FAF7F2?text=Detalles'">
+                            </div>
+                            <div class="h-48 sm:h-64 rounded-2xl overflow-hidden placeholder-image bg-keria-sand/20">
+                                <span class="placeholder-badge">Foto Atelier</span>
+                                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Participantes elaborando velas" 
+                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/400x500/332E2C/FAF7F2?text=Experiencia'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 5: NUESTRA DIFERENCIA (VALORES)
+         ========================================== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-keria-sand">Por qué elegir Keriá</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl text-keria-charcoal">
+                    Hecho a mano, creado con intención.
+                </h2>
+                <div class="w-12 h-[1px] bg-keria-rosedark mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Diferencial 1 -->
+                <div class="p-8 rounded-2xl bg-keria-ivory border border-keria-beige/60 text-center space-y-4 shadow-soft">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-keria-rose flex items-center justify-center text-keria-gold text-xl">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-serif-title text-xl text-keria-charcoal">Cuidado Artesanal</h3>
+                    <p class="text-xs text-keria-charcoal/70 leading-relaxed font-light">
+                        Vertido a mano en pequeños lotes para garantizar la calidad en el acabado, el quemado parejo y la difusión perfecta del aroma.
+                    </p>
+                </div>
+
+                <!-- Diferencial 2 -->
+                <div class="p-8 rounded-2xl bg-keria-ivory border border-keria-beige/60 text-center space-y-4 shadow-soft">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-keria-rose flex items-center justify-center text-keria-gold text-xl">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="font-serif-title text-xl text-keria-charcoal">Bienestar Consciente</h3>
+                    <p class="text-xs text-keria-charcoal/70 leading-relaxed font-light">
+                        Utilizamos cera de soja vegetal no tóxica, mechas de algodón o madera y fragancias delicadas que crean calma sin saturar.
+                    </p>
+                </div>
+
+                <!-- Diferencial 3 -->
+                <div class="p-8 rounded-2xl bg-keria-ivory border border-keria-beige/60 text-center space-y-4 shadow-soft">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-keria-rose flex items-center justify-center text-keria-gold text-xl">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="font-serif-title text-xl text-keria-charcoal">Estética & Elegancia</h3>
+                    <p class="text-xs text-keria-charcoal/70 leading-relaxed font-light">
+                        Diseños sofisticados y limpios pensados para complementar la decoración de tu hogar con calidez y toque femenino.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 6: EXPERIENCIAS Y HITO HISTÓRICO
+         ========================================== -->
+    <section class="py-20 md:py-24 bg-keria-rose/30 border-y border-keria-rose/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-keria-beige relative overflow-hidden">
+                <div class="absolute top-0 right-0 transform translate-x-8 -translate-y-8 text-keria-rose/40 font-serif-title text-9xl pointer-events-none select-none">“</div>
+                
+                <div class="max-w-3xl mx-auto text-center space-y-6 relative z-10">
+                    <span class="text-xs font-semibold uppercase tracking-[0.25em] text-keria-gold">Nuestra Historia & Hito</span>
+                    
+                    <h3 class="font-serif-title text-2xl sm:text-4xl text-keria-charcoal">
+                        El primer Atelier de Velas Keriá
+                    </h3>
+
+                    <p class="text-sm sm:text-base text-keria-charcoal/80 font-light leading-relaxed">
+                        Nuestro primer Atelier de Velas Keriá fue una experiencia sumamente especial. El taller logró completar sus cupos antes de su publicación oficial, reflejando el hermoso interés de las participantes por aprender y compartir esta experiencia creativa.
+                    </p>
+
+                    <p class="text-sm sm:text-base text-keria-charcoal/80 font-light leading-relaxed">
+                        Fue una jornada de aprendizaje, creatividad y conexión profunda, donde cada participante pudo elaborar sus propias piezas y disfrutar de un momento único para sí misma.
+                    </p>
+
+                    <div class="pt-4 flex flex-col items-center justify-center">
+                        <span class="font-handwriting text-3xl text-keria-gold">Comunidad Keriá</span>
+                        <span class="text-[10px] uppercase tracking-widest text-keria-sand mt-1">Velas Artesanales & Experiencias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 7: REGALOS Y EXPERIENCIAS ESPECIALES
+         ========================================== -->
+    <section id="regalos" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                    <span class="text-xs font-semibold uppercase tracking-[0.25em] text-keria-sand">Detalles con Sentido</span>
+                    
+                    <h2 class="font-serif-title text-3xl sm:text-4xl text-keria-charcoal leading-tight">
+                        Regala algo más que una vela. <br><span class="italic text-keria-gold">Regala un momento especial.</span>
+                    </h2>
+
+                    <p class="text-sm sm:text-base text-keria-charcoal/80 font-light leading-relaxed">
+                        Nuestras velas y talleres son la opción perfecta para sorprender a quien más quieres en cumpleaños, aniversarios, celebraciones especiales o simplemente como un gesto espontáneo de cariño.
+                    </p>
+
+                    <ul class="space-y-3 text-xs sm:text-sm text-keria-charcoal/80 font-light inline-block text-left">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-heart text-keria-rosedark text-sm"></i>
+                            <span>Empaque delicado y listo para entregar.</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-heart text-keria-rosedark text-sm"></i>
+                            <span>Tarjetas con mensajes personalizados.</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-heart text-keria-rosedark text-sm"></i>
+                            <span>Gift Cards para participar en los próximos Ateliers.</span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Quisiera%20consultar%20por%20opciones%20de%20regalos%20personalizados." 
+                           target="_blank" 
+                           rel="noopener"
+                           class="inline-flex items-center px-8 py-4 bg-keria-rose text-keria-charcoal text-xs uppercase tracking-widest rounded-full hover:bg-keria-charcoal hover:text-white transition-all duration-300 font-medium gap-2">
+                            <span>Consultar opciones de regalo</span>
+                            <i class="fab fa-whatsapp text-emerald-600 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-soft placeholder-image bg-keria-beige h-[380px] sm:h-[450px]">
+                        <span class="placeholder-badge">Foto Referencial</span>
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" 
+                             alt="Regalos especiales Keriá Velas" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/600x500/F4E8E1/332E2C?text=Regalos+Especiales'">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 8: CONTACTO Y LLAMADA FINAL A LA ACCIÓN
+         ========================================== -->
+    <section id="contacto" class="py-20 md:py-28 bg-keria-gradient relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
+            
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-md text-keria-gold">
+                <i class="fas fa-flame text-2xl"></i>
+            </div>
+
+            <h2 class="font-serif-title text-3xl sm:text-5xl text-keria-charcoal">
+                ¿Creamos un momento especial para ti?
+            </h2>
+
+            <p class="text-sm sm:text-base text-keria-charcoal/80 font-light max-w-2xl mx-auto leading-relaxed">
+                Descubre nuestras velas artesanales, encuentra tu aroma favorito o vive una experiencia creativa en nuestro Atelier. Estamos listos para ayudarte a elegir y personalizar cada detalle.
+            </p>
+
+            <!-- Acciones de contacto directas -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto pt-4">
+                
+                <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20gustar%C3%ADa%20conocer%20sus%20velas%20artesanales%20y%20productos%20disponibles." 
+                   target="_blank" 
+                   rel="noopener"
+                   class="p-4 bg-white rounded-2xl shadow-soft hover:shadow-lg transition-all text-center flex flex-col items-center justify-center border border-keria-rose/50 group">
+                    <i class="fab fa-whatsapp text-2xl text-emerald-600 mb-2 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs uppercase tracking-wider font-semibold text-keria-charcoal">Comprar o Consultar Velas</span>
+                    <span class="text-[10px] text-keria-sand mt-1">Escríbenos directamente</span>
+                </a>
+
+                <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20interesa%20participar%20en%20uno%20de%20sus%20talleres%20de%20velas.%20%CBFuenten%20enviarme%20informaci%C3%B3n?" 
+                   target="_blank" 
+                   rel="noopener"
+                   class="p-4 bg-white rounded-2xl shadow-soft hover:shadow-lg transition-all text-center flex flex-col items-center justify-center border border-keria-rose/50 group">
+                    <i class="fas fa-ticket-alt text-2xl text-keria-gold mb-2 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs uppercase tracking-wider font-semibold text-keria-charcoal">Reservar Taller Atelier</span>
+                    <span class="text-[10px] text-keria-sand mt-1">Consulta próximas fechas</span>
+                </a>
+
+            </div>
+
+            <!-- Canales Directos -->
+            <div class="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-keria-charcoal/80">
+                <a href="https://wa.me/56993142027" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-keria-gold transition-colors">
+                    <i class="fab fa-whatsapp text-emerald-600 text-base"></i>
+                    <span>+56 9 9314 2027</span>
+                </a>
+                <a href="https://instagram.com/keria.cs" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-keria-gold transition-colors">
+                    <i class="fab fa-instagram text-pink-600 text-base"></i>
+                    <span>@keria.cs</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECCIÓN 9: FOOTER (PIE DE PÁGINA)
+         ========================================== -->
+    <footer class="bg-keria-charcoal text-white pt-16 pb-12 border-t border-keria-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Columna 1: Marca -->
+                <div class="md:col-span-5 space-y-4">
+                    <a href="#" class="flex items-center space-x-3 group">
+                        <img src="logo2.jpeg" alt="Logo Keriá" class="h-14 w-auto object-contain bg-white/10 rounded-xl p-1.5 border border-white/20">
+                        <div class="flex flex-col">
+                            <span class="font-serif-title text-2xl tracking-widest text-white font-semibold">KERIÁ</span>
+                            <span class="block text-[10px] tracking-[0.25em] text-keria-goldsoft uppercase -mt-1 font-medium">Velas Artesanales & Atelier</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-keria-beige/70 font-light max-w-sm leading-relaxed">
+                        Velas artesanales elaboradas con cera vegetal de soja y talleres creativos presenciales orientados al bienestar y la belleza.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Navegación -->
+                <div class="md:col-span-4 space-y-3">
+                    <h5 class="text-xs font-semibold uppercase tracking-widest text-keria-gold">Navegación</h5>
+                    <ul class="space-y-2 text-xs text-keria-beige/80 font-light">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-white transition-colors">Esencia & Valores</a></li>
+                        <li><a href="#productos" class="hover:text-white transition-colors">Velas Artesanales</a></li>
+                        <li><a href="#atelier" class="hover:text-white transition-colors">Talleres Presenciales</a></li>
+                        <li><a href="#regalos" class="hover:text-white transition-colors">Regalos Especiales</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Redes & Contacto -->
+                <div class="md:col-span-3 space-y-3">
+                    <h5 class="text-xs font-semibold uppercase tracking-widest text-keria-gold">Contacto Directo</h5>
+                    <div class="space-y-2 text-xs text-keria-beige/80 font-light">
+                        <p class="flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-emerald-400"></i>
+                            <a href="https://wa.me/56993142027" target="_blank" rel="noopener" class="hover:underline">+56 9 9314 2027</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i class="fab fa-instagram text-pink-400"></i>
+                            <a href="https://instagram.com/keria.cs" target="_blank" rel="noopener" class="hover:underline">@keria.cs</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Frase Final y Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4">
+                <p class="font-serif-title text-sm text-keria-goldsoft italic">
+                    “Keriá: mucho más que velas, momentos que iluminan el alma.”
+                </p>
+                <p class="text-[11px] text-keria-beige/40">
+                    &copy; <span id="year"></span> Keriá Velas Artesanales & Atelier. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ==========================================
+         BOTÓN FLOTANTE DISCRETO DE WHATSAPP
+         ========================================== -->
+    <a href="https://wa.me/56993142027?text=Hola,%20Keri%C3%A1.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20talleres." 
+       target="_blank" 
+       rel="noopener" 
+       class="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-emerald-500 hover:scale-110 transition-all duration-300 group"
+       aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-keria-charcoal text-white text-[11px] font-medium px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md pointer-events-none">
+            ¿Hablamos por WhatsApp?
+        </span>
+    </a>
+
+
+    <!-- ==========================================
+         JAVASCRIPT INTEGRADOR (Menú & Interacción)
+         ========================================== -->
+    <script>
+        // Actualizar año en footer dinámicamente
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Control del menú móvil
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Cerrar menú móvil al hacer clic en cualquier enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Efecto de cambio de estilo en Header al hacer scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm', 'bg-white/95');
+                header.classList.remove('bg-keria-ivory/90');
+            } else {
+                header.classList.remove('shadow-sm', 'bg-white/95');
+                header.classList.add('bg-keria-ivory/90');
+            }
+        });
+    </script>
+
+</body>
+</html>
